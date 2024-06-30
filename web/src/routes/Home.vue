@@ -13,7 +13,7 @@
         <h1 class="scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl">Auslandsaufenthalt</h1>
         <h2 class="scroll-m-20 text-2xl font-bold tracking-tight lg:text-3xl">am Gymnasium Riedberg</h2>
         <p>Interessiert an einem Auslandsaufenthalt? Bitte fülle das Formular gemeinsam mit deinen Eltern aus.</p>
-        <p>Melde dich dafür bitte mit deinen iServ-Zugangsdaten an. Dies vereinfacht die Zuordnung deiner Daten.</p>
+        <p>Melde dich dafür bitte mit deinen iServ-Zugangsdaten an, dies vereinfacht die Zuordnung deiner Daten.</p>
         <Button class="m-5"> Formular aufrufen (iServ-Login) </Button>
         <p>
             <u>Hinweis: </u> Du kannst das Formular auch nur teilweise ausfüllen und später weitermachen. Die Daten

@@ -11,7 +11,7 @@ export default createRouter({
             component: Home
         },
         {
-            path: "/forms/1",
+            path: "/initial-form",
             component: () => import("../routes/InitForm.vue"),
         }
     ]

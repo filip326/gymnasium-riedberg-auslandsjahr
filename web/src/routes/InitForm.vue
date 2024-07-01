@@ -1,62 +1,71 @@
 <script setup lang="ts">
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "../components/ui/tabs";
-
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "../components/ui/card";
-import Button from "../components/ui/button/Button.vue";
-
-import { Input } from "../components/ui/input";
-import { z } from "zod";
-
-const susFormSchema = z.object({
-  firstName: z.string().describe("Vorname"),
-  lastName: z.string().describe("Nachname"),
-});
+    import { Button } from "../components/ui/button";
+    import {
+        Form,
+        FormControl,
+        FormDescription,
+        FormField,
+        FormItem,
+        FormLabel,
+        FormMessage,
+    } from "../components/ui/form";
+    import {
+        NumberField,
+        NumberFieldContent,
+        NumberFieldDecrement,
+        NumberFieldIncrement,
+        NumberFieldInput,
+    } from "../components/ui/number-field";
+    import { Label } from "../components/ui/label";
+    import { Input } from "../components/ui/input";
 </script>
 
 <template>
-  <h1 class="scroll-m-20 text-3xl font-bold">Auslandsjahr: Erstantrag</h1>
-  <p>
-    Bitte füllen Sie das Formular gemeinsam mit Ihrem Kind aus. Die Daten werden mit dem
-    iServ-Zugang Ihres Kindes verknüpft, um die Zuordnung zu erleichtern. Die Daten werden
-    regelmäßig zwischengespeichert, sodass Sie das Formular später fortsetzen können.
-  </p>
-  <div class="flex justify-center">
-    <Tabs default-value="sus-daten" class="w-[90%]">
-      <TabsList>
-        <TabsTrigger value="sus-daten">Schülerin / Schüler</TabsTrigger>
-        <TabsTrigger value="eltern-daten">Eltern / Erziehungsberechtigte </TabsTrigger>
-        <TabsTrigger value="auslandsaufenthalt">Auslandsaufenthalt</TabsTrigger>
-      </TabsList>
-      <TabsContent value="sus-daten">
-        <Card>
-          <CardHeader>
-            <CardTitle> Daten des Schülers / der Schülerin </CardTitle>
-            <CardDescription>
-              Bitte überprüfen Sie die Daten Ihres Kindes und korrigieren oder ergänzen
-              diese.
-            </CardDescription>
-          </CardHeader>
-          <CardContent>
-            <Input labal="Vorname" />
-            <Input label="Nachname" />
-            <Input label="Geburtsdatum" />
-          </CardContent>
-          <CardFooter> <Button>Weiter</Button> </CardFooter>
-        </Card>
-      </TabsContent>
-      <TabsContent value="eltern-daten">
-        <p>Formular Eltern / Erziehungsberechtigte</p>
-      </TabsContent>
-      <TabsContent value="auslandsaufenthalt">
-        <p>Formular Auslandsaufenthalt</p>
-      </TabsContent>
-    </Tabs>
-  </div>
+    <div class="px-5">
+        <h1 class="scroll-m-20 text-3xl font-bold">Auslandsjahr: Erstantrag</h1>
+        <p>
+            Bitte füllen Sie das Formular gemeinsam mit Ihrem Kind aus. Die Daten werden mit dem iServ-Zugang Ihres
+            Kindes verknüpft, um die Zuordnung zu erleichtern. Die Daten werden regelmäßig zwischengespeichert, sodass
+            Sie das Formular später fortsetzen können.
+        </p>
+        <Form>
+            <h3 class="scroll-m-20 text-xl font-semibold tracking-tight lg:text-2xl">
+                Angaben zum Schüler / zur Schülerin
+            </h3>
+            <FormField name="studentFirstName">
+                <FormItem>
+                    <FormLabel>Vorname</FormLabel>
+                    <FormDescription>Vorname des Schülers / der Schülerin</FormDescription>
+                    <FormControl><Input /></FormControl>
+                </FormItem>
+            </FormField>
+            <FormField name="studentLastName">
+                <FormItem>
+                    <FormLabel>Nachname</FormLabel>
+                    <FormDescription>Nachname des Schülers / der Schülerin</FormDescription>
+                    <FormControl><Input /></FormControl>
+                </FormItem>
+            </FormField>
+            <FormField name="year">
+                <FormItem>
+                    <FormLabel>Jahrgang</FormLabel>
+                    <FormDescription
+                        >Jahrgangsstufe / Klasse, welche der Schüler / die Schülerin zurzeit besucht.
+                    </FormDescription>
+                    <FormControl><Input /></FormControl>
+                </FormItem>
+            </FormField>
+            <NumberField
+              :min="5"
+              :max="13"
+            >
+                <Label>Jahrgangsstufe</Label>
+                <NumberFieldContent>
+                    <NumberFieldDecrement />
+                    <NumberFieldInput />
+                    <NumberFieldIncrement />
+                </NumberFieldContent>
+            </NumberField>
+        </Form>
+    </div>
 </template>
